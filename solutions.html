@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #F5F5F7;
+            --bg-card: #FFFFFF;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --text-muted: #A1A1A6;
+            --accent-blue: #0066CC;
+            --accent-blue-hover: #0055B3;
+            --border-light: rgba(0, 0, 0, 0.08);
+            --border-subtle: rgba(0, 0, 0, 0.04);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+            --radius-card: 24px;
+            --radius-pill: 980px;
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            position: fixed;
+            top: 1rem;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: var(--shadow-sm);
+            border-radius: var(--radius-pill);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1.75rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .brand-logo {
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .brand-logo span {
+            color: var(--text-secondary);
+            font-weight: 400;
+            font-size: 0.85rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            opacity: 0.75;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            opacity: 1;
+            color: var(--accent-blue);
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: #FFFFFF !important;
+            padding: 0.65rem 1.35rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: transform 0.2s ease, background 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #000000;
+            transform: scale(1.02);
+            opacity: 1 !important;
+        }
+
+        .btn-secondary {
+            background: #FFFFFF;
+            color: var(--text-primary) !important;
+            border: 1px solid var(--border-light);
+            padding: 0.65rem 1.35rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-body);
+            transform: scale(1.02);
+        }
+
+        /* --- Common Layout Elements --- */
+        .page-hero {
+            padding-top: 10rem;
+            padding-bottom: 4rem;
+            text-align: center;
+        }
+
+        .pill-badge {
+            display: inline-block;
+            background: #FFFFFF;
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-size: 3.75rem;
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto 2rem;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+        }
+
+        /* Bento Grid System */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+
+        .bento-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            padding: 2.5rem;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .col-12 { grid-column: span 12; }
+        .col-8 { grid-column: span 8; }
+        .col-6 { grid-column: span 6; }
+        .col-4 { grid-column: span 4; }
+
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .card-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 0.85rem;
+            letter-spacing: -0.01em;
+        }
+
+        .card-desc {
+            font-size: 0.975rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-img-wrapper {
+            width: 100%;
+            height: 220px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: auto;
+        }
+
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #FFFFFF;
+            border-top: 1px solid var(--border-light);
+            padding: 5rem 0 3rem;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        .footer-col h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.25rem;
+            color: var(--text-muted);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-blue);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.825rem;
+            color: var(--text-secondary);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .hero-title { font-size: 2.8rem; }
+            .col-8, .col-4, .col-6 { grid-column: span 12; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-title { font-size: 2.2rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+
+    <title>Solutions & Equipment | Avtrix Apparatus Trading FZE</title>
+</head>
+<body>
+    
+    <header>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo">
+                AVTRIX <span>APPARATUS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Overview</a></li>
+<li><a href="solutions.html" class="active">Solutions</a></li>
+<li><a href="sourcing.html">Global Sourcing</a></li>
+<li><a href="about.html">About & Leadership</a></li>
+
+            </ul>
+            <a href="contact.html" class="btn-primary">Contact Sales &rarr;</a>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-hero container">
+            <span class="pill-badge">Precision Machinery Portfolio</span>
+            <h1 class="hero-title">Engineered Equipment & Component Solutions</h1>
+            <p class="hero-subtitle">
+                Explore our catalog of specialized apparatus, high-efficiency engines, and custom component substitutes engineered for high-precision manufacturing facilities.
+            </p>
+        </section>
+
+        <section class="section-padding container" style="padding-top: 0;">
+            <div class="bento-grid">
+                
+                <div class="bento-card col-6" id="lgd">
+                    <div>
+                        <div class="card-tag">Specialized Vertical</div>
+                        <h3 class="card-title">Lab-Grown Diamond (LGD) Apparatus</h3>
+                        <p class="card-desc">
+                            Comprehensive equipment supply for LGD manufacturing environments. Including reactor support assemblies, high-vacuum pumps, precision power control units, and diamond seed preparation machinery.
+                        </p>
+                        <ul style="list-style: none; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+                            <li style="margin-bottom: 0.5rem;">✔ HPHT & CVD Chamber Auxiliaries</li>
+                            <li style="margin-bottom: 0.5rem;">✔ High-Stability Chiller & Cooling Systems</li>
+                            <li style="margin-bottom: 0.5rem;">✔ Laser Slicing & Processing Spare Components</li>
+                        </ul>
+                    </div>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="High Tech Microelectronics & LGD Tech">
+                    </div>
+                </div>
+
+                <div class="bento-card col-6" id="engines">
+                    <div>
+                        <div class="card-tag">Power & Motion</div>
+                        <h3 class="card-title">Specialized Engines & Industrial Drives</h3>
+                        <p class="card-desc">
+                            High-durability engines, heavy-duty electric motors, and variable frequency drives tailored for continuous industrial plant operations and specialized energy applications.
+                        </p>
+                        <ul style="list-style: none; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+                            <li style="margin-bottom: 0.5rem;">✔ Continuous-Duty Heavy Engines</li>
+                            <li style="margin-bottom: 0.5rem;">✔ Precision Servomotors & Actuators</li>
+                            <li style="margin-bottom: 0.5rem;">✔ Plant Power Turbines & Drive Units</li>
+                        </ul>
+                    </div>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80" alt="Industrial Engine & Turbine Tech">
+                    </div>
+                </div>
+
+                <div class="bento-card col-6" id="spares">
+                    <div>
+                        <div class="card-tag">Custom Matching</div>
+                        <h3 class="card-title">Precision Component Substitutes</h3>
+                        <p class="card-desc">
+                            When OEM lead times jeopardize production schedules, we source and verify exact schematic-matched component substitutes to keep your machinery running without delay.
+                        </p>
+                        <ul style="list-style: none; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+                            <li style="margin-bottom: 0.5rem;">✔ Ultra-Precision Seals & Valves</li>
+                            <li style="margin-bottom: 0.5rem;">✔ High-Pressure Manifolds & Gaskets</li>
+                            <li style="margin-bottom: 0.5rem;">✔ Hardened Wear Parts & Tooling</li>
+                        </ul>
+                    </div>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" alt="Precision Metal Components">
+                    </div>
+                </div>
+
+                <div class="bento-card col-6" id="workshop">
+                    <div>
+                        <div class="card-tag">Maintenance & Operations</div>
+                        <h3 class="card-title">Workshop Equipment & Benches</h3>
+                        <p class="card-desc">
+                            High-grade workshop apparatus, precision inspection tools, calibration benches, and maintenance systems built for high-tech industrial manufacturing workshops.
+                        </p>
+                        <ul style="list-style: none; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+                            <li style="margin-bottom: 0.5rem;">✔ Metrology & Optical Alignment Tools</li>
+                            <li style="margin-bottom: 0.5rem;">✔ Ultrasonic Cleaning Workstations</li>
+                            <li style="margin-bottom: 0.5rem;">✔ Heavy Duty Pneumatic & Hydraulic Rigging</li>
+                        </ul>
+                    </div>
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=1200&q=80" alt="Workshop Calibration Apparatus">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section-padding container" style="text-align: center;">
+            <div style="background: #FFFFFF; border-radius: 28px; padding: 3.5rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);">
+                <span class="pill-badge">Bespoke Procurement</span>
+                <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem;">Have Specific Plant Schematics?</h2>
+                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem;">Our technical engineering team analyzes your exact CAD or mechanical specifications to deliver 100% compatible apparatus solutions.</p>
+                <a href="contact.html" class="btn-primary" style="padding: 0.85rem 2rem;">Submit Your Schematics &rarr;</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>AVTRIX APPARATUS TRADING FZE</h3>
+                    <p>A specialized modern enterprise dedicated to high-tech industrial machinery, precision engines, and component sourcing for advanced manufacturing units.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Overview</a></li>
+                        <li><a href="solutions.html">Equipment Solutions</a></li>
+                        <li><a href="sourcing.html">Global Sourcing</a></li>
+                        <li><a href="about.html">Company Profile</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Sectors</h4>
+                    <ul>
+                        <li><a href="solutions.html#lgd">Lab-Grown Diamonds</a></li>
+                        <li><a href="solutions.html#engines">Specialized Engines</a></li>
+                        <li><a href="solutions.html#spares">Precision Spare Parts</a></li>
+                        <li><a href="solutions.html#workshop">Workshop Apparatus</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Corporate</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="about.html#leadership">Leadership</a></li>
+                        <li><a href="about.html#values">Core Values</a></li>
+                        <li><a href="contact.html">Request Quote</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 Avtrix Apparatus Trading FZE. Registered in the United Arab Emirates. All rights reserved.</div>
+                <div>Minimalist Apple Design System</div>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
