@@ -3,650 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avtrix Apparatus Trading FZE | Precision Industrial Solutions</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-body: #F5F5F7;
-            --bg-card: #FFFFFF;
-            --text-primary: #1D1D1F;
-            --text-secondary: #86868B;
-            --text-muted: #A1A1A6;
-            --accent-blue: #0066CC;
-            --accent-blue-hover: #0055B3;
-            --border-light: rgba(0, 0, 0, 0.08);
-            --border-subtle: rgba(0, 0, 0, 0.04);
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
-            --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
-            --radius-card: 24px;
-            --radius-pill: 980px;
-            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            background-color: var(--bg-body);
-            color: var(--text-primary);
-            font-family: var(--font-main);
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body {
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.2s ease;
-        }
-
-        .container {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* --- Apple Glass Navigation --- */
-        header {
-            position: fixed;
-            top: 1rem;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
-
-        .nav-wrapper {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: var(--shadow-sm);
-            border-radius: var(--radius-pill);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 1.75rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .brand-logo {
-            font-weight: 800;
-            font-size: 1.1rem;
-            letter-spacing: -0.02em;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .brand-logo span {
-            color: var(--text-secondary);
-            font-weight: 400;
-            font-size: 0.85rem;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            opacity: 0.8;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            opacity: 1;
-            color: var(--accent-blue);
-        }
-
-        .btn-primary {
-            background: var(--text-primary);
-            color: #FFFFFF !important;
-            padding: 0.6rem 1.25rem;
-            border-radius: var(--radius-pill);
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            background: #000000;
-            transform: scale(1.02);
-            opacity: 1 !important;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            padding-top: 10rem;
-            padding-bottom: 5rem;
-            text-align: center;
-        }
-
-        .pill-badge {
-            display: inline-block;
-            background: #FFFFFF;
-            padding: 0.4rem 1rem;
-            border-radius: var(--radius-pill);
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--accent-blue);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 800;
-            line-height: 1.08;
-            letter-spacing: -0.03em;
-            max-width: 900px;
-            margin: 0 auto 1.5rem;
-            color: var(--text-primary);
-        }
-
-        .hero-subtitle {
-            font-size: 1.35rem;
-            color: var(--text-secondary);
-            max-width: 680px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.5;
-            font-weight: 400;
-        }
-
-        .hero-banner {
-            width: 100%;
-            height: 520px;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            margin-top: 2rem;
-        }
-
-        .hero-banner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-banner-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 3rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
-            color: #FFFFFF;
-            text-align: left;
-        }
-
-        .hero-banner-overlay h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-banner-overlay p {
-            font-size: 1rem;
-            opacity: 0.85;
-            max-width: 600px;
-        }
-
-        /* --- Bento Box Grid Section --- */
-        .section-padding {
-            padding: 6rem 0;
-        }
-
-        .section-header {
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.75rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.75rem;
-        }
-
-        .section-header p {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-        }
-
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 1.5rem;
-        }
-
-        .bento-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-card);
-            padding: 2.5rem;
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden;
-            position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .bento-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .col-8 { grid-column: span 8; }
-        .col-4 { grid-column: span 4; }
-        .col-6 { grid-column: span 6; }
-
-        .card-tag {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent-blue);
-            margin-bottom: 0.75rem;
-        }
-
-        .card-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
-        }
-
-        .card-desc {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-img-wrapper {
-            width: 100%;
-            height: 240px;
-            border-radius: 16px;
-            overflow: hidden;
-            margin-top: auto;
-        }
-
-        .card-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* --- Leadership Spotlight Section --- */
-        .leadership-card {
-            background: #FFFFFF;
-            border-radius: 28px;
-            padding: 4rem;
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-sm);
-            display: grid;
-            grid-template-columns: 1fr 1.3fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .leadership-img {
-            width: 100%;
-            height: 480px;
-            border-radius: 20px;
-            object-fit: cover;
-        }
-
-        .quote-icon {
-            font-size: 3rem;
-            color: var(--accent-blue);
-            line-height: 1;
-            margin-bottom: 1rem;
-        }
-
-        .quote-text {
-            font-size: 1.35rem;
-            font-weight: 500;
-            line-height: 1.5;
-            letter-spacing: -0.01em;
-            margin-bottom: 2rem;
-            color: var(--text-primary);
-        }
-
-        .leader-info h4 {
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .leader-info p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .experience-pills {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .exp-pill {
-            background: var(--bg-body);
-            padding: 0.75rem 1.25rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-light);
-        }
-
-        .exp-pill strong {
-            display: block;
-            font-size: 0.85rem;
-            color: var(--text-primary);
-        }
-
-        .exp-pill span {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        /* --- Footer --- */
-        footer {
-            background: #FFFFFF;
-            border-top: 1px solid var(--border-light);
-            padding: 5rem 0 3rem;
-            margin-top: 4rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr repeat(3, 1fr);
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        .footer-brand h3 {
-            font-size: 1.3rem;
-            font-weight: 800;
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-brand p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            max-width: 320px;
-            line-height: 1.6;
-        }
-
-        .footer-col h4 {
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1.25rem;
-            color: var(--text-muted);
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-col a {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .footer-col a:hover {
-            color: var(--accent-blue);
-        }
-
-        .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-light);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        /* --- Mobile Responsiveness --- */
-        @media (max-width: 1024px) {
-            .hero-title { font-size: 3rem; }
-            .col-8, .col-4, .col-6 { grid-column: span 12; }
-            .leadership-card { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem; }
-            .leadership-img { height: 320px; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero-title { font-size: 2.4rem; }
-            .hero-banner { height: 360px; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-        }
-    </style>
+    <title>Avtrix Apparatus Trading FZE | Machinery Parts UAE</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Apple-Style Floating Frosted Glass Header -->
     <header>
-        <div class="nav-wrapper">
-            <a href="index.html" class="brand-logo">
-                AVTRIX <span>APPARATUS</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Overview</a></li>
-                <li><a href="solutions.html">Solutions</a></li>
-                <li><a href="sourcing.html">Global Sourcing</a></li>
-                <li><a href="about.html">About & Leadership</a></li>
-            </ul>
-            <a href="contact.html" class="btn-primary">Contact Sales &rarr;</a>
+        <div class="container nav-bar">
+            <a href="index.html" class="logo">Avtrix Apparatus</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="contact.html" class="btn-pill">Get Quote</a>
         </div>
     </header>
 
-    <!-- Main Content Container -->
     <main>
-        
-        <!-- Hero Section -->
-        <section class="hero container">
-            <span class="pill-badge">Next-Generation Industrial Sourcing</span>
-            <h1 class="hero-title">Precision Engineering for the Next Era of Synthesis</h1>
-            <p class="hero-subtitle">
-                Avtrix Apparatus Trading FZE delivers mission-critical machinery, specialized engines, and component substitutes tailored for the Lab-Grown Diamond (LGD) ecosystem.
-            </p>
-            
-            <div class="hero-banner">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80" alt="High Tech Manufacturing Facility">
-                <div class="hero-banner-overlay">
-                    <h3>Empowering Modern Industrial Plants</h3>
-                    <p>Headquartered in the United Arab Emirates, bridging global machinery suppliers with advanced production lines in UAE and India.</p>
-                </div>
+        <!-- HERO SECTION -->
+        <section class="container" style="padding: 100px 0 40px 0;">
+            <span class="badge">United Arab Emirates</span>
+            <h1 class="hero-title gradient-text">Machinery parts.<br>Engineered for speed.</h1>
+            <p class="hero-subtitle">Avtrix Apparatus Trading FZE delivers original and high-grade replacement parts for heavy equipment and industrial systems across the region.</p>
+            <div style="display: flex; gap: 16px;">
+                <a href="products.html" class="btn-pill">Explore Products</a>
+                <a href="contact.html" class="btn-pill btn-secondary">Request Quote</a>
             </div>
+
+            <!-- STOCK HERO BANNER -->
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=80" alt="Industrial Engineering Stock" class="hero-banner-img">
         </section>
 
-        <!-- Bento Grid Section: Key Capabilities -->
-        <section class="section-padding container">
-            <div class="section-header">
-                <h2>Engineered for Performance.</h2>
-                <p>Designed with agility, verified with technical integrity, and built around bespoke client needs.</p>
-            </div>
-
-            <div class="bento-grid">
-                
-                <!-- Bento Card 1: LGD Vertical (Large) -->
-                <div class="bento-card col-8">
-                    <div>
-                        <div class="card-tag">Primary Industrial Vertical</div>
-                        <h3 class="card-title">Lab-Grown Diamond Synthesis & Processing Equipment</h3>
-                        <p class="card-desc">
-                            We supply specialized high-pressure high-temperature (HPHT) and CVD support apparatus, laser processing spare parts, precision cooling systems, and specialized engine components engineered specifically for diamond synthesis environments.
-                        </p>
-                    </div>
-                    <div class="card-img-wrapper" style="height: 280px;">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" alt="Precision Tech Synthesis">
+        <!-- BENEFIT CARDS WITH STOCK IMAGES -->
+        <section class="container">
+            <div class="grid-3">
+                <div class="card-dark">
+                    <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80" alt="Engine Precision Stock" class="stock-img">
+                    <div class="card-body">
+                        <h3>Proven Quality</h3>
+                        <p>Sourced from top global manufacturers to maintain performance and extend machine operating life.</p>
                     </div>
                 </div>
-
-                <!-- Bento Card 2: Precision Sourcing -->
-                <div class="bento-card col-4">
-                    <div>
-                        <div class="card-tag">Quality Assurance</div>
-                        <h3 class="card-title">Rigorous Verification</h3>
-                        <p class="card-desc">
-                            Every component and engine is verified against strict international engineering benchmarks before integration.
-                        </p>
-                    </div>
-                    <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80" alt="Precision Gear Equipment">
+                <div class="card-dark">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Dubai Logistics Hub Stock" class="stock-img">
+                    <div class="card-body">
+                        <h3>Dubai Logistics Hub</h3>
+                        <p>Strategically inventoried in JAFZA to dispatch orders rapidly and eliminate downtime.</p>
                     </div>
                 </div>
-
-                <!-- Bento Card 3: Modern Supply Chain -->
-                <div class="bento-card col-6">
-                    <div>
-                        <div class="card-tag">Global Logistics</div>
-                        <h3 class="card-title">Seamless Component Substitution</h3>
-                        <p class="card-desc">
-                            Eliminate plant downtime with our agile sourcing network across global engineering corridors, providing direct component replacements matched to exact facility schematics.
-                        </p>
-                    </div>
-                    <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80" alt="Global Supply Chain Logistics">
-                    </div>
-                </div>
-
-                <!-- Bento Card 4: Free Zone Synergy -->
-                <div class="bento-card col-6">
-                    <div>
-                        <div class="card-tag">Strategic Advantage</div>
-                        <h3 class="card-title">UAE Free Zone Hub Operations</h3>
-                        <p class="card-desc">
-                            Operating out of the United Arab Emirates, leveraging world-class infrastructure and proximity to prominent diamond and industrial free zones to ensure frictionless trade.
-                        </p>
-                    </div>
-                    <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80" alt="UAE Industrial Hub">
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Leadership Spotlight Section -->
-        <section class="section-padding container">
-            <div class="leadership-card">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Jaydip Ratibhai Lakhani - Founder" class="leadership-img">
-                <div>
-                    <div class="card-tag">Leadership & Vision</div>
-                    <div class="quote-icon">“</div>
-                    <p class="quote-text">
-                        "We launched Avtrix Apparatus Trading FZE to bridge critical gaps in the supply chain of high-tech manufacturing equipment. Our foundation is built upon intensive, on-the-ground industrial experience."
-                    </p>
-                    
-                    <div class="leader-info">
-                        <h4>Jaydip Ratibhai Lakhani</h4>
-                        <p>Founder & Managing Director</p>
-                    </div>
-
-                    <div class="experience-pills">
-                        <div class="exp-pill">
-                            <strong>KLZ Crystals DMCC (UAE)</strong>
-                            <span>Lab-Grown Diamond Ops & Handling</span>
-                        </div>
-                        <div class="exp-pill">
-                            <strong>Om Kar Petroleum (India)</strong>
-                            <span>Service & Supply Logistics Ops</span>
-                        </div>
+                <div class="card-dark">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Heavy Equipment Stock" class="stock-img">
+                    <div class="card-body">
+                        <h3>Direct Quotes</h3>
+                        <p>Straightforward pricing and fast response times with zero complex jargon or hidden delays.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Multi-Page Directory / Navigation Callout -->
-        <section class="section-padding container text-center" style="text-align: center;">
-            <span class="pill-badge">Explore Our Multi-Page Portal</span>
-            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem;">Ready to upgrade your supply chain?</h2>
-            <p style="color: var(--text-secondary); max-width: 550px; margin: 0 auto 2rem;">Discover our full lineup of technical machinery, sourcing strategies, and corporate governance.</p>
-            
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="solutions.html" class="btn-primary" style="padding: 0.8rem 1.8rem;">Explore Solutions &rarr;</a>
-                <a href="sourcing.html" class="btn-primary" style="background: #FFFFFF; color: var(--text-primary) !important; border: 1px solid var(--border-light); padding: 0.8rem 1.8rem;">Sourcing Strategy</a>
-                <a href="about.html" class="btn-primary" style="background: #FFFFFF; color: var(--text-primary) !important; border: 1px solid var(--border-light); padding: 0.8rem 1.8rem;">Company Profile</a>
+        <!-- LIGHT BANNER -->
+        <section class="light-section">
+            <div class="container" style="text-align: center;">
+                <h2>Keep your operations running.</h2>
+                <p style="max-width: 600px; margin: 0 auto 32px auto; font-size: 18px; color: #515154;">
+                    From hydraulic assemblies to complete engine kits, we supply exact parts with zero hassle.
+                </p>
+                <a href="contact.html" class="btn-pill" style="background-color: var(--text-dark);">Contact Our Desk</a>
             </div>
         </section>
-
     </main>
 
-    <!-- Apple-Style Clean Footer -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>AVTRIX APPARATUS TRADING FZE</h3>
-                    <p>A specialized modern enterprise dedicated to high-tech industrial machinery, precision engines, and component sourcing for advanced manufacturing units.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="index.html">Overview</a></li>
-                        <li><a href="solutions.html">Equipment Solutions</a></li>
-                        <li><a href="sourcing.html">Global Sourcing</a></li>
-                        <li><a href="about.html">Company Profile</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Sectors</h4>
-                    <ul>
-                        <li><a href="solutions.html#lgd">Lab-Grown Diamonds</a></li>
-                        <li><a href="solutions.html#engines">Specialized Engines</a></li>
-                        <li><a href="solutions.html#spares">Precision Spare Parts</a></li>
-                        <li><a href="solutions.html#workshop">Workshop Apparatus</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Corporate</h4>
-                    <ul>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="about.html#leadership">Leadership</a></li>
-                        <li><a href="#">UAE Free Zone Registry</a></li>
-                        <li><a href="#">2026 Company Profile</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div>&copy; 2026 Avtrix Apparatus Trading FZE. Registered in the United Arab Emirates. All rights reserved.</div>
-                <div>Designed with Apple Aesthetic Principles</div>
-            </div>
+            <p>&copy; 2026 Avtrix Apparatus Trading FZE. All rights reserved. Jebel Ali Freezone (JAFZA), Dubai, UAE.</p>
         </div>
     </footer>
 
